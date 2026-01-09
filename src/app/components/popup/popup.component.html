@@ -1,0 +1,13 @@
+<h2 mat-dialog-title align="center"></h2>
+<div mat-dialog-content align="center">
+  <div class="d-flex justify-content-around mb-2" style="max-width: 20em">
+    <img class="w-25" src="http://testologia.ru/tea-images/product1.png" alt="tea image 1">
+    <img class="w-25" src="http://testologia.ru/tea-images/product2.png" alt="tea image 2">
+    <img class="w-25" src="http://testologia.ru/tea-images/product3.png" alt="tea image 3">
+  </div>
+  Посмотрите наши чайные коллекции
+</div>
+<div mat-dialog-actions align="center">
+  <a mat-raised-button [routerLink]="'/products'" mat-dialog-close class="bg-primary text-light">Смотреть</a>
+  <button mat-stroked-button mat-dialog-close><i class="material-icons">close</i></button>
+</div>

@@ -1,0 +1,51 @@
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ProductService} from "../../common/services/product.service";
+import { Router } from "@angular/router";
+import {Subscription, tap} from "rxjs";
+import {ProductType} from "../../common/types/product.type";
+
+@Component({
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
+})
+export class ProductsComponent implements OnInit, OnDestroy {
+
+  public productTitle: string = 'Наши чайные коллекции';
+  public loading: boolean = false;
+  private subscriptionProducts: Subscription | null = null;
+  public products: ProductType[] = [];
+
+  constructor(private productService: ProductService,
+              private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.showProducts();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionProducts?.unsubscribe();
+  }
+
+  showProducts(): void {
+    this.loading = true;
+    this.subscriptionProducts = this.productService.getProducts()
+      .pipe(
+        tap(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe({
+        next: data => {
+
+          this.products = data;
+        },
+        error: err => {
+          console.log(err);
+          this.router.navigate(['/']).then();
+        }
+      })
+  }
+
+}

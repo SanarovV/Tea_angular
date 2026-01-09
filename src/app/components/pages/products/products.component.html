@@ -1,0 +1,21 @@
+<div class="container my-4">
+  <div class="text-center">
+    <div class='h2 fw-bold mb-4'>{{ productTitle }}</div>
+  </div>
+  <div class="row d-flex flex-wrap justify-content-center gap-3 px-3">
+    <div class="col-4 card p-0 d-flex" style="width: 23rem;" *ngFor="let product of products">
+      <div class="w-50 mx-auto text-center">
+        <img [src]="product.image" class="card-img img-fluid" alt="Tea image 1">
+      </div>
+      <div class="card-body p-4 d-flex flex-column align-items-center align-items-sm-start">
+        <div class="h5 card-title mx-auto mb-3 fw-bold">{{ product.title }}</div>
+        <p class="card-text mb-4 text-center text-sm-start">{{ product.description | trunc: 90 }}</p>
+        <a [routerLink]="['/products', product.id]" class="btn btn-primary mx-auto px-5 py-2">Подробнее</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loader-bg" *ngIf="loading">
+  <div class="loader"></div>
+</div>

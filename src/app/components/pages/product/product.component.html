@@ -1,0 +1,21 @@
+<div class="container my-4 d-flex flex-column align-items-center">
+  <div class="text-center">
+    <div class='h2 fw-bold mb-5'>{{ product.title }}</div>
+  </div>
+  <div class="row d-flex flex-wrap justify-content-center gap-3 px-3">
+    <div class="card p-0 d-flex align-items-center">
+      <div class="d-flex">
+        <p
+          class="card-text p-4 text-center border-end mb-0 text-sm-start align-items-center align-items-sm-start">{{ product.description }}
+        </p>
+        <div class="product-image col-3 text-center p-4" style="max-width: 26em;">
+          <img [src]="product.image" class="card-img-top" alt="Tea image 1" style="width: 89%">
+          <p class="fw-bold card-text mb-4 text-center">
+            Цена: {{ product.price | currency:'руб.' }} за 100 г.
+          </p>
+          <a [routerLink]="'/order'" class="btn btn-primary px-5 py-2">Купить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
