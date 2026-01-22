@@ -2,7 +2,7 @@ import {Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@a
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Subscription, tap} from "rxjs";
-import {OrderService} from "../../common/services/order.service";
+import {OrderService} from "../../shared/services/order.service";
 
 @Component({
   selector: 'app-order',

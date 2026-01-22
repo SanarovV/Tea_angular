@@ -6,46 +6,38 @@ registerLocaleData(localeRu, 'ru-RU');
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { PopupComponent } from './components/popup/popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatButtonModule} from "@angular/material/button";
-import { ProductsComponent } from './components/pages/products/products.component';
-import {ProductService} from "./components/common/services/product.service";
 import {HttpClientModule} from "@angular/common/http";
-import { TruncPipe } from './components/common/pipes/trunc.pipe';
-import { ProductComponent } from './components/pages/product/product.component';
 import {registerLocaleData} from "@angular/common";
-import { OrderComponent } from './components/pages/order/order.component';
 import { ReactiveFormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ProductsModule} from "./views/products/products.module";
+import {MainModule} from "./views/main/main.module";
+import {OrderModule} from "./views/order/order.module";
+import {SharedModule} from "./shared/shared.module";
+import {FooterComponent} from "./shared/layout/footer/footer.component";
+import {HeaderComponent} from "./shared/layout/header/header.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainComponent,
-    HeaderComponent,
     FooterComponent,
-    PopupComponent,
-    ProductsComponent,
-    TruncPipe,
-    ProductComponent,
-    OrderComponent
+    HeaderComponent,
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-    MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
+    ProductsModule,
+    MainModule,
+    OrderModule,
+    SharedModule,
+    AppRoutingModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ru-RU'},
-    ProductService
   ],
   bootstrap: [AppComponent]
 })

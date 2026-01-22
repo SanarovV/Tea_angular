@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductService} from "../../common/services/product.service";
 import { Router } from "@angular/router";
 import {Subscription, tap} from "rxjs";
-import {ProductType} from "../../common/types/product.type";
+import {ProductType} from "../../../../types/product.type";
+import {ProductService} from "../../../shared/services/product.service";
 
 @Component({
   selector: 'app-products',

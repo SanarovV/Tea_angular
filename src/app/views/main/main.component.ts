@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {PopupComponent} from "../../popup/popup.component";
-declare let $: any
+import {PopupComponent} from "../../shared/components/popup/popup.component";
+declare let $: any;
 
 @Component({
   selector: 'app-main',
@@ -18,7 +18,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.popupObservable = new Observable<void>((observer) => {
       const timeout = setTimeout(() => {
         observer.next();
-      }, 10000)
+      }, 1000)
       return {
         unsubscribe() {
           clearTimeout(timeout);

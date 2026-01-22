@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription, tap} from "rxjs";
-import {ProductType} from "../../common/types/product.type";
-import {ProductService} from "../../common/services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {OrderService} from "../../common/services/order.service";
+import {ProductType} from "../../../../types/product.type";
+import {ProductService} from "../../../shared/services/product.service";
+import {OrderService} from "../../../shared/services/order.service";
 
 @Component({
   selector: 'app-product',
