@@ -18,7 +18,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.popupObservable = new Observable<void>((observer) => {
       const timeout = setTimeout(() => {
         observer.next();
-      }, 1000)
+      }, 10000)
       return {
         unsubscribe() {
           clearTimeout(timeout);
